@@ -3,6 +3,7 @@ import Footer from '../Layout/Footer/Footer';
 import Navbar from '../Layout/Navbar/Navbar';
 import SupportEngine from '../SupportEngine/SupportEngine';
 import Banner from './Banner';
+import Category from './Category/Category';
 import Ext1 from './Ext1';
 import Ext2 from './Ext2';
 
@@ -14,8 +15,9 @@ const Home = () => {
             
             
             <Banner></Banner>
-            <Ext1></Ext1>
+            <Category></Category>
             <Ext2></Ext2>
+            
             
             
         </div>
