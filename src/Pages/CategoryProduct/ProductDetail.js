@@ -1,47 +1,62 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import DetailsCard from './DetailsCard';
+
 const ProductDetail = () => {
+
+
+    const [activeButton, setActiveButton] = useState(null);
+    const [myString, setMyString] = useState('Tall');
+    console.log(myString)
+        console.log(activeButton)
+
+  
+
     const details = useLoaderData()
     const { _id, img_url, product_name, location, resale_price, seller_name, product_status, seller_email } = details;
 
+    const handleButtonClick = (buttonId, buttonValue) => {
+        setActiveButton(buttonId);
+        setMyString(buttonValue);
 
+        
+      };
 
     const handleForm = event => {
         event.preventDefault()
-        const form = event.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const productname = form.productname.value;
-        const resaleprice = form.resaleprice.value;
-        const phone = form.phone.value;
-        const location = form.location.value;
-        console.log(name, email, productname, resaleprice, phone, location);
+        // const form = event.target;
+        // const name = form.name.value;
+        // const email = form.email.value;
+        // const productname = form.productname.value;
+        // const resaleprice = form.resaleprice.value;
+        // const phone = form.phone.value;
+        // const location = form.location.value;
+        // console.log(name, email, productname, resaleprice, phone, location);
 
-        const book = {
-            product_img: img_url,
-            name: name,
-            email: email,
-            productname: productname,
-            resaleprice: resaleprice,
-            phone: phone,
-            location: location
-        }
+        // const book = {
+        //     product_img: img_url,
+        //     name: name,
+        //     email: email,
+        //     productname: productname,
+        //     resaleprice: resaleprice,
+        //     phone: phone,
+        //     location: location
+        // }
 
-        fetch('http://localhost:5000/bookdata', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(book)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                
+        // fetch('http://localhost:5000/bookdata', {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(book)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data);
 
 
-            })
+
+        //     })
     }
 
 
@@ -66,9 +81,9 @@ const ProductDetail = () => {
 
 
                         <form onSubmit={handleForm} className=" bg-slate-200 ">
-                        {/* <h1 className="text-4xl text-center font-bold">{product_name}</h1> */}
+                            {/* <h1 className="text-4xl text-center font-bold">{product_name}</h1> */}
 
-                        {/* <div className="form-control">
+                            {/* <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
@@ -76,62 +91,76 @@ const ProductDetail = () => {
                         </div> */}
 
 
-                        {/* <div className="form-control">
+                            {/* <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
                             <input type="text" name='email' defaultValue={user?.email} disabled className="input input-bordered" />
-                        </div> */}
+                        </div>
+                         */}
+                            
 
 
-                        <div className="form-control">
-                            {/* <label className="label">
+                            <div className="form-control">
+                                {/* <label className="label">
                                 <span className="label-text">Product Name</span>
                             </label> */}
-                            <input type="text" name='productname' defaultValue={product_name} disabled className="text-3xl font-bold" />
-                        </div>
+                                <input type="text" name='productname' defaultValue={product_name} disabled className="text-3xl font-bold" />
+                            </div>
 
 
-                        <div className="form-control">
-                            <p className="text-3xl font-bold">${resale_price}</p>
-                            
-                        </div>
+                            <div className="form-control">
+                                <p className="text-3xl font-bold mt-2">${resale_price}</p>
 
+                            </div>
 
-                        <div className="form-control">
-                            
-                            <input type="text" name='phone' className=" border-indigo-500 border-b-2" />
-                        </div>
+                            <div className='flex my-5'>
 
+                            <p className='font-bold text-2xl'>Size: {myString}</p>
+                                <button className={`btn btn-sm btn-outline mx-2 rounded-none ${activeButton === 'button1' ? 'bg-green-500 border-0' : ''
+                                    }`}
+                                    onClick={() => handleButtonClick('button1','Tall')}>
 
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Your Location</span>
-                            </label>
-                            <input type="text" name='location' placeholder='Type your Location' className="input input-bordered" />
-                        </div>
-
-
-
-
-
-
-
-
-
-                        <div className="form-control mt-6">
-                            <input htmlFor="my-modal-3" type="submit" className="btn bg-[#cea274] hover:bg-[#749383] border-0" value="Book" />
-                            
-                        </div>
-                    </form>
-
-                        <div className='flex justify-start mt-5'>
-                            <Link to=''>
-                                <button className='btn btn-outline hover:bg-green-600 hover:border-0 rounded-none'>
-                                    EXPLORE MORE
+                                    Tall
                                 </button>
-                            </Link>
-                        </div>
+
+
+                                <button className={`btn btn-sm btn-outline mx-2 rounded-none ${activeButton === 'button2' ? 'bg-green-500 border-0' : ''
+                                    }`}
+                                    onClick={() => handleButtonClick('button2','Small')}>
+
+                                    Small
+                                </button>
+
+                            </div>
+
+
+                            <div className="form-control">
+
+                                <input type="text" name='phone' placeholder='Enter Phone Number' className=" border-black h-10 w-1/2 border-b-2 rounded bg-slate-100" />
+                            </div>
+
+
+                            <div className="form-control">
+
+                                <input type="text" name='location' placeholder='Type your Location' className="border-black h-10 w-1/2 border-b-2 mt-10 rounded bg-slate-100" />
+                            </div>
+
+
+
+
+
+
+
+
+
+                            <div className="form-control mt-6">
+                                <input htmlFor="" type="submit" className="btn btn-outline hover:bg-green-600 hover:border-0 rounded-none w-1/4" value="Book" />
+
+                            </div>
+                        </form>
+
+
                     </div>
                 </div>
 
