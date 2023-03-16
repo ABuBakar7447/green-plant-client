@@ -87,7 +87,7 @@ const SignUp = () => {
     }
     return (
         <div className="hero">
-            <div className="hero-content w-3/5 flex-col lg:flex-row text-[#cea274]">
+            <div className="hero-content w-3/5 flex-col lg:flex-row">
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-5">
                     <form onSubmit={handleSignUp} className="card-body">
                         <h1 className="text-4xl text-center font-bold">Please Sign In</h1>
@@ -141,7 +141,7 @@ const SignUp = () => {
 
 
 
-                    <p className='text-center text-[#7c7c7c]'>If you have an account, then <Link className='underline font-bold text-[#cea274]' to='/login'>Log In.</Link></p>
+                    <p className='text-center text-[#7c7c7c]'>If you have an account, then <Link className='underline font-bold' to='/login'>Log In.</Link></p>
                 </div>
             </div>
         </div>

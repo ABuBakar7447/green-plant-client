@@ -37,7 +37,7 @@ const Login = () => {
     }
     return (
         <div className="hero">
-            <div className="hero-content w-3/5 flex-col lg:flex-row text-[#cea274]">
+            <div className="hero-content w-3/5 flex-col lg:flex-row">
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-5">
                     <form onSubmit={handleLogin} className="card-body">
                         <h1 className="text-4xl text-center font-bold">Login now</h1>
@@ -55,10 +55,10 @@ const Login = () => {
 
                         </div>
                         <div className="form-control mt-6">
-                            <input type="submit" className="btn bg-[#cea274] hover:bg-[#749383] border-0" value="Login" />
+                            <input type="submit" className="btn rounded-none btn-outline hover:bg-green-600 hover:border-0" value="Login" />
                         </div>
                     </form>
-                    <p className='text-center text-[#7c7c7c]'>Don't have any account?please <Link className='underline font-bold text-[#cea274]' to='/signin'>Sign Up.</Link></p>
+                    <p className='text-center'>Don't have any account?please <Link className='underline font-bold text-[#7c7c7c]' to='/signin'>Sign Up.</Link></p>
                 </div>
             </div>
         </div>
