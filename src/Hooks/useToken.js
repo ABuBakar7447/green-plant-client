@@ -6,10 +6,10 @@ const useToken = email => {
     const [token, setToken] = useState(null);
 
     //token sending
-    
+
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:5000/jwt?email=${email}`)
+            fetch(`https://green-plant-server-omega.vercel.app/jwt?email=${email}`)
                 .then(res => res.json())
                 .then(data => {
                     if (data.tokenForAccess) {

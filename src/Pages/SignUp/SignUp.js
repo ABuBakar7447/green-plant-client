@@ -43,7 +43,7 @@ const SignUp = () => {
                     })
                     .catch(err => console.log(err));
                 form.reset('');
-                
+
 
             })
             .catch(error => console.error(error));
@@ -58,7 +58,7 @@ const SignUp = () => {
                 const user = result.user;
                 console.log(user)
                 saveUserDetails(user.displayName, user.email, value);
-                
+
             })
             .catch(error => console.error(error))
     }
@@ -73,7 +73,7 @@ const SignUp = () => {
             verification: 'not verified'
         }
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://green-plant-server-omega.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

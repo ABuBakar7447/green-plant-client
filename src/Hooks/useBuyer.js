@@ -7,7 +7,7 @@ const useBuyer = email => {
     //buyer route checking
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:5000/buyer/${email}`)
+            fetch(`https://green-plant-server-omega.vercel.app/buyer/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     setBuyer(data.isBuyer)

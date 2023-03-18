@@ -45,7 +45,7 @@ const ProductDetail = () => {
     const handleForm = event => {
         event.preventDefault()
         const form = event.target;
-        
+
         const phone = form.phone.value;
         const location = form.location.value;
         console.log(phone, location);
@@ -55,14 +55,14 @@ const ProductDetail = () => {
             name: user?.displayName,
             email: user?.email,
             // size: myString,
-            quantity:value,
+            quantity: value,
             productname: product_name,
             resaleprice: resale_price,
             phone: phone,
             location: location
         }
 
-        fetch('http://localhost:5000/bookdata', {
+        fetch('https://green-plant-server-omega.vercel.app/bookdata', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

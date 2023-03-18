@@ -26,14 +26,14 @@ const router = createBrowserRouter([
             {
                 path: '/products/:category_name',
                 element: <Product></Product>,
-                loader: ({ params }) => fetch(`http://localhost:5000/products?product_category=${params.category_name}`)
+                loader: ({ params }) => fetch(`https://green-plant-server-omega.vercel.app/products?product_category=${params.category_name}`)
             },
 
 
             {
                 path: '/product/:id',
                 element: <Private><ProductDetail></ProductDetail></Private>,
-                loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
+                loader: ({ params }) => fetch(`https://green-plant-server-omega.vercel.app/product/${params.id}`)
             },
 
             {
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
                 path: '/blog',
                 element: <Private><Blog></Blog></Private>
             },
-            
+
 
         ]
     },
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
                 element: <DashBoard></DashBoard>,
             },
 
-           
+
             {
                 path: '/dashboard/myorder',
                 element: <BuyerPrivate><MyBookIng></MyBookIng></BuyerPrivate>,
@@ -71,7 +71,7 @@ const router = createBrowserRouter([
             // {
             //     path: '/dashboard/payment/:id',
             //     element: <BuyerPrivate><Payment></Payment></BuyerPrivate>,
-            //     loader: ({params})=>fetch(`http://localhost:5000/bookingdata/${params.id}`)
+            //     loader: ({params})=>fetch(`https://green-plant-server-omega.vercel.app/bookingdata/${params.id}`)
             // },
         ]
 
